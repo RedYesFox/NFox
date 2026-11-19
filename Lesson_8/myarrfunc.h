@@ -1,6 +1,3 @@
-#ifndef MYARRFUNC_H
-#define MYARRFUNC_H
-
 #include <stddef.h>
 
 // 10 Функция Вычисление суммы элементов в заданном диапазоне индексов k–m
@@ -11,5 +8,3 @@ size_t find_indices_in_value_range(const int *arrptr, size_t limit, int k, int m
 
 // 28 Функция Вычисление индексов элементов, значения которых выше среднего значения массива
 size_t find_indices_above_average(const int *arrptr, size_t limit, size_t *indices);
-
-#endif

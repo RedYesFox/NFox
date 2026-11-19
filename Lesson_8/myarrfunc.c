@@ -11,7 +11,7 @@ long long sum_in_idx_range(const int *arrptr, size_t limit, size_t k, size_t m)
     long long sum = 0;
     for (size_t i = k; i <= m; i++)
     {
-        sum += *(arrptr + i);
+        sum += arrptr[i];
     }
     return sum;
 }
@@ -29,10 +29,10 @@ size_t find_indices_in_value_range(const int *arrptr, size_t limit, int k, int m
     size_t count = 0;
     for (size_t i = 0; i < limit; i++)
     {
-        int val = *(arrptr + i);
+        int val = arrptr[i];
         if (val >= k && val <= m)
         {
-            *(indices + count) = i;
+            indices[count] = i;
             count++;
         }
     }
@@ -45,21 +45,19 @@ size_t find_indices_above_average(const int *arrptr, size_t limit, size_t *indic
     if (limit == 0)
         return 0;
 
-    // среднее
     double sum = 0.0;
     for (size_t i = 0; i < limit; i++)
     {
-        sum += *(arrptr + i);
+        sum += arrptr[i];
     }
     double avg = sum / limit;
 
-    // индексы
     size_t count = 0;
     for (size_t i = 0; i < limit; i++)
     {
-        if (*(arrptr + i) > avg)
+        if (arrptr[i] > avg)
         {
-            *(indices + count) = i;
+            indices[count] = i;
             count++;
         }
     }

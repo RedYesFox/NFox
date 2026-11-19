@@ -55,7 +55,7 @@ int main(void)
                 printf("Введите %zu элементов: ", limit);
                 for (size_t i = 0; i < limit; i++)
                 {
-                    if (scanf("%d", arr + i) != 1)
+                    if (scanf("%d", &arr[i]) != 1)
                     {
                         printf("Ошибка ввода элемента.\n");
                         while (getchar() != '\n');
@@ -74,7 +74,7 @@ int main(void)
                 }
                 for (size_t i = 0; i < limit; i++)
                 {
-                    printf("arr[%zu] = %d, адрес: %p\n", i, *(arr + i), (void *)(arr + i));
+                    printf("arr[%zu] = %d, адрес: %p\n", i, arr[i], (void *)&arr[i]);
                 }
                 break;
 
@@ -110,7 +110,7 @@ int main(void)
                 printf("Введите диапазон значений (k m): ");
                 if (scanf("%d %d", &k, &m) == 2)
                 {
-                    size_t indices[MAX_SIZE]; // Статический массив для индексов
+                    size_t indices[MAX_SIZE];
                     size_t count = find_indices_in_value_range(arr, limit, k, m, indices);
                     if (count == 0)
                     {
@@ -121,7 +121,7 @@ int main(void)
                         printf("Найденные индексы: ");
                         for (size_t i = 0; i < count; i++)
                         {
-                            printf("%zu ", *(indices + i));
+                            printf("%zu ", indices[i]);
                         }
                         printf("\n");
                     }
@@ -140,7 +140,7 @@ int main(void)
                     printf("Массив пуст.\n");
                     break;
                 }
-                size_t indices[MAX_SIZE]; // Статический массив для индексов
+                size_t indices[MAX_SIZE];
                 size_t count = find_indices_above_average(arr, limit, indices);
                 if (count == 0)
                 {
@@ -151,7 +151,7 @@ int main(void)
                     printf("Индексы элементов выше среднего: ");
                     for (size_t i = 0; i < count; i++)
                     {
-                        printf("%zu ", *(indices + i));
+                        printf("%zu ", indices[i]);
                     }
                     printf("\n");
                 }
