@@ -78,7 +78,7 @@ int main(void)
                 {
                     for (size_t j = 0; j < cols; j++)
                     {
-                        printf("[%zu][%zu] = %d (адрес: %p)  ", i, j, matrix[i][j], (void *)&matrix[i][j]);
+                        printf("[%zu][%zu] = %d (адрес: %p)  ", i, j, matrix[i][j], &matrix[i][j]);
                     }
                     printf("\n");
                 }
