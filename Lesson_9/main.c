@@ -2,9 +2,6 @@
 #include <stdio.h>
 #include "matrixfunc.h"
 
-#define MAX_ROWS 100
-#define MAX_COLS 100
-
 int main(void)
 {
     int running = 1;
@@ -93,7 +90,7 @@ int main(void)
                 }
 
                 long long col_sums[MAX_COLS];
-                sum_of_col(&matrix[0][0], rows, cols, col_sums, MAX_COLS);
+                sum_of_col(&matrix[0][0], rows, cols, col_sums);
                 printf("Суммы по столбцам:\n");
                 for (size_t j = 0; j < cols; j++)
                     printf("Столбец %zu: %lld\n", j, col_sums[j]);
@@ -110,7 +107,7 @@ int main(void)
                 printf("Введите k: ");
                 if (scanf("%d", &k) == 1)
                 {
-                    size_t cnt = count_below_k(&matrix[0][0], rows, cols, k, MAX_COLS);
+                    size_t cnt = count_below_k(&matrix[0][0], rows, cols, k);
                     printf("Количество элементов < %d: %zu\n", k, cnt);
                 }
                 else
@@ -134,7 +131,7 @@ int main(void)
                 if (scanf("%zu %zu", &k, &m) == 2)
                 {
                     long long col_sums[MAX_COLS];
-                    long long total = sum_of_col_in_range(&matrix[0][0], rows, cols, k, m, col_sums, MAX_COLS);
+                    long long total = sum_of_col_in_range(&matrix[0][0], rows, cols, k, m, col_sums);
                     printf("Суммы по столбцам в диапазоне [%zu, %zu]:\n", k, m);
                     for (size_t j = k; j <= m && j < cols; j++)
                         printf("Столбец %zu: %lld\n", j, col_sums[j]);
